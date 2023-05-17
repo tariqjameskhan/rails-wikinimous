@@ -1,0 +1,21 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border-bottom bg-light">
+  <div class="container-fluid">
+    <%= link_to "Wikinimous", articles_path, class: "navbar-brand" %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <%= link_to "Add a new article", new_article_path, class: "nav-link" %>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container list-group mt-5 ms-5 text-decoration-none">
+        <% @articles.each do |article| %>
+          <h2><%= link_to(article['title'], article_path(article['id']))%></h2>
+          <p><%= article.content %></p>
+        <% end %>
+  </div>
+</div>
