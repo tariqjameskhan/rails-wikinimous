@@ -11,11 +11,15 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="container list-group mt-5 ms-5 text-decoration-none">
+<div class="container mt-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10 col-sm-6">
         <% @articles.each do |article| %>
           <h2><%= link_to(article['title'], article_path(article['id']))%></h2>
           <p><%= article.content %></p>
         <% end %>
+      </div>
+    </div >
   </div>
 </div>
