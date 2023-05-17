@@ -11,18 +11,34 @@
   </div>
 </div>
 
-<div class="container mt-5">
-  <div class="d-inline-flex p-2">
-    <h1 class="border-bottom p-3"><%= @article.title %></h1>
+<div class="container">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10 col-sm-6">
+        <div class="d-inline-flex p-2">
+          <h1 class="border-bottom p-3"><%= @article.title %></h1>
+          <div>
+            <i><%= link_to '', edit_article_path(@article), class: "fa-solid fa-pencil" %></i>
+            <i><%= link_to "", article_path(@article), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "fa-solid fa-trash-can" %></i>
+          </div>
+        </div>
+        <div>
+          <h3 class="ms-4 p3"><%= @article.content %></h3>
+        </div>
+        <div>
+          <p class="btn btn-primary mt-5 ms-4"><%= link_to "Back to articles", articles_path, class: "text-white"%></p>
+        </div>
+      </div>
+    </div >
+  </div>
+
+  <i><%= link_to '', edit_article_path(@article), class: "fa-solid fa-pencil" %></i>
+</div>
     <p class="p-2"><%= link_to "Edit", edit_article_path(@article) %></p>
     <p class="p-2"><%= link_to "Delete this article",
       article_path(@article),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
     %></p>
-  </div>
-  <div>
-    <h3 class="ms-4 p3"><%= @article.content %></h3>
-  </div>
 
   <div>
     <i class="fa-solid fa-pencil"><%= link_to "Edit", edit_article_path(@article) %></i>
@@ -35,12 +51,4 @@
 
   <i><%= link_to "", article_path(@article), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "fa-solid fa-trash-can" %></i>
   <i><%= link_to '', edit_article_path(@article), class: "fa-solid fa-pencil" %></i>
-
-  <div>
-    <p><%= link_to "Back to articles", articles_path%></p>
-  </div>
-
-  <div>
-
-  </div>
 </div>
